@@ -1,0 +1,18 @@
+{namespace org.tripside.stash.plugin.hook.postreceive.notification.flowdock}
+
+/**
+ * @param config
+ * @param? errors
+ */
+{template .formContents}
+    {call aui.form.textField}
+        {param id: 'token' /}
+        {param value: $config['token'] /}
+        {param labelContent}
+            {stash_i18n('org.tripside.stash.plugin.hook.postreceive.notification.flowdock', 'Flow API token')}
+        {/param}
+        {param descriptionText: stash_i18n('org.tripside.stash.plugin.hook.postreceive.notification.flowdock', 'Flow API token') /}
+        {param extraClasses: 'long' /}
+        {param errorTexts: $errors ? $errors['token'] : null /}
+    {/call}
+{/template}
