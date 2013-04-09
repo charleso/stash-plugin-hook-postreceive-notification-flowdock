@@ -1,0 +1,46 @@
+{namespace org.tripside.stash.plugin.hook.postreceive.notification.flowdock}
+
+/**
+ * @param changesets
+ */
+{template .inboxBranchUpdate}
+    {foreach $ref in $changesets}
+	 • <a href="{$ref.uri}">{$ref.sha1}</a> {$ref.message}<br />
+    {/foreach}
+{/template}
+
+/**
+ * @param user
+ * @param uri
+ * @param refName
+ */
+{template .inboxBranchAdd}
+    <strong>{if $user}{$user.displayName}{else}Unknown{/if}</strong> created branch <a href="{$uri}">{$refName}</a>
+{/template}
+
+/**
+ * @param user
+ * @param uri
+ * @param refName
+ */
+{template .inboxBranchDelete}
+    <strong>{if $user}{$user.displayName}{else}Unknown{/if}</strong> deleted branch <a href="{$uri}">{$refName}</a>
+{/template}
+
+/**
+ * @param user
+ * @param uri
+ * @param refName
+ */
+{template .inboxTagAdd}
+    <strong>{if $user}{$user.displayName}{else}Unknown{/if}</strong> tagged <a href="{$uri}">{$refName}</a>
+{/template}
+
+/**
+ * @param user
+ * @param uri
+ * @param refName
+ */
+{template .inboxTagDelete}
+    <strong>{if $user}{$user.displayName}{else}Unknown{/if}</strong> removed tag <a href="{$uri}">{$refName}</a>
+{/template}

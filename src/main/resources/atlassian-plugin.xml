@@ -1,16 +1,25 @@
-<atlassian-plugin key="${project.groupId}" name="${project.description}" plugins-version="2">
+<atlassian-plugin key="${project.groupId}" name="${project.name}" plugins-version="2">
 	<plugin-info>
 		<description>${project.description}</description>
 		<version>${project.version}</version>
 		<vendor name="${project.organization.name}" url="${project.organization.url}" />
 	</plugin-info>
 
-	<repository-hook key="${project.groupId}" name="Flowdock Post-Receive Notification" class="${project.groupId}.FlowdockPostReceiveNotificationHook">
-		<description>${project.description}</description>
+	<component-import key="stashAuthenticationContext" interface="com.atlassian.stash.user.StashAuthenticationContext" />
+	<component-import key="historyService" interface="com.atlassian.stash.history.HistoryService" />
+	<component-import key="navBuilder" interface="com.atlassian.stash.nav.NavBuilder" />
+	<component-import key="soyTemplateRenderer" interface="com.atlassian.soy.renderer.SoyTemplateRenderer" />
+
+	<repository-hook key="${project.groupId}" name="Flowdock Push Notification" class="${project.groupId}.FlowdockPostReceiveNotificationHook">
+		<description>Publishes a notification to the specified flow's inbox whenever someone pushes to the repository.</description>
 		<icon>icons/flowdock-black.png</icon>
-		<config-form name="Flowdock Post-Receive Notification Config" key="${project.groupId}">
+		<config-form name="Flowdock Push Notification Config" key="${project.groupId}">
 			<view>${project.groupId}</view>
 			<directory location="/static/" />
 		</config-form>
 	</repository-hook>
+
+	<stash-resource key="templates" name="Soy Templates">
+		<directory location="/static/" />
+	</stash-resource>
 </atlassian-plugin>

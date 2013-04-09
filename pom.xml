@@ -19,7 +19,7 @@
 	</organization>
 
 	<name>Flowdock Post-Receive Notification Hook</name>
-	<description>Publishes a notification to the team inbox of the specified flow whenever someone pushes to the repository</description>
+	<description>A plugin for publishing post-receive notifications to a Flowdock inbox</description>
 	<packaging>atlassian-plugin</packaging>
 
 	<dependencyManagement>
@@ -102,10 +102,40 @@
 		</dependency>
 
 		<!-- other dependencies -->
+		<!--
+
+			Apparently using jersey from an atlassian plugin fails hard because
+			of a bunch of classloader bullshit.  Java sucks.
+
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-core</artifactId>
+			<version>1.17</version>
+		</dependency>
 		<dependency>
 			<groupId>com.sun.jersey</groupId>
 			<artifactId>jersey-client</artifactId>
 			<version>1.17</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-json</artifactId>
+			<version>1.17</version>
+		</dependency>-->
+		<dependency>
+			<groupId>us.monoid.web</groupId>
+			<artifactId>resty</artifactId>
+			<version>0.3.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.atlassian.soy</groupId>
+			<artifactId>soy-template-renderer-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.atlassian.stash</groupId>
+			<artifactId>stash-scm-git-api</artifactId>
+			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 

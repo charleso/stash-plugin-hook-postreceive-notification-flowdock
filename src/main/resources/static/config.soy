@@ -15,4 +15,14 @@
         {param extraClasses: 'long' /}
         {param errorTexts: $errors ? $errors['token'] : null /}
     {/call}
+    {call aui.form.textField}
+        {param id: 'email' /}
+        {param value: $config['token'] /}
+        {param labelContent}
+            {stash_i18n('org.tripside.stash.plugin.hook.postreceive.notification.flowdock', 'Email Address')}
+        {/param}
+        {param descriptionText: stash_i18n('org.tripside.stash.plugin.hook.postreceive.notification.flowdock', 'The email address to use as the notification source') /}
+        {param extraClasses: 'long' /}
+        {param errorTexts: $errors ? $errors['token'] : null /}
+    {/call}
 {/template}
