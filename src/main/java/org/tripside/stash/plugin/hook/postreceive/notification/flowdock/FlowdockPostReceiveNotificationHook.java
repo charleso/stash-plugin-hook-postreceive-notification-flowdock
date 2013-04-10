@@ -175,11 +175,7 @@ public class FlowdockPostReceiveNotificationHook implements AsyncPostReceiveRepo
 		URI uri = new URI("https://api.flowdock.com/v1/git/" + token);
 		Resty r = new Resty();
 
-		log.warn(new JSONObject (payload).toString(4));
-
 		TextResource res = r.text(uri, form(data("payload", content(new JSONObject (payload)))));
-
-		log.info("Response: " + res.toString());
 	}
 
 	@Override
