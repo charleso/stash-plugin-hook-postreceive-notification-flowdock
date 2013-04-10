@@ -5,10 +5,8 @@
 		<vendor name="${project.organization.name}" url="${project.organization.url}" />
 	</plugin-info>
 
-	<component-import key="stashAuthenticationContext" interface="com.atlassian.stash.user.StashAuthenticationContext" />
 	<component-import key="historyService" interface="com.atlassian.stash.history.HistoryService" />
 	<component-import key="navBuilder" interface="com.atlassian.stash.nav.NavBuilder" />
-	<component-import key="soyTemplateRenderer" interface="com.atlassian.soy.renderer.SoyTemplateRenderer" />
 
 	<repository-hook key="${project.groupId}" name="Flowdock Push Notification" class="${project.groupId}.FlowdockPostReceiveNotificationHook">
 		<description>Publishes a notification to the specified flow's inbox whenever someone pushes to the repository.</description>
