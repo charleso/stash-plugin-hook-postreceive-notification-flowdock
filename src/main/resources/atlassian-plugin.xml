@@ -16,8 +16,4 @@
 			<directory location="/static/" />
 		</config-form>
 	</repository-hook>
-
-	<stash-resource key="templates" name="Soy Templates">
-		<directory location="/static/" />
-	</stash-resource>
 </atlassian-plugin>
